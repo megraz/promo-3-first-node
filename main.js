@@ -11,7 +11,7 @@ le nom du module à importer.
 Ici, on fait un require du module fs qui se charge de la
 gestion des fichiers et dossiers.
 */
-//let fs = require('fs');
+let fs = require('fs');
 /*
 Pour utiliser des fonctions/classes/variables d'un autre
 fichier js de notre projet, il faut également le require mais
@@ -36,6 +36,10 @@ const server = http.createServer(function(req, res) {
     doggo.getAllDoggos(function(chiens) {
         res.end(JSON.stringify(chiens));
     });
+});
+fs.writeFile('toto.txt', 'Hello Toto!', function(err) {
+    if (err) return console.log(err);
+    console.log('Hello World > helloworld.txt');
 });
 serveur.listen(8181, function() {
     console.log('server listening on port 8181');
